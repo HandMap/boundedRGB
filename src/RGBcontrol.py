@@ -26,6 +26,15 @@ def onMouse(event, x, y, flags, param):
         #cv2.setTrackbarPos('mouseOver - blue', 'RGB', blue)
 
 
+def setBlue():
+    cv2.setTrackbarPos('lower - red', 'RGB', 86)
+    cv2.setTrackbarPos('lower - green', 'RGB', 31)
+    cv2.setTrackbarPos('lower - blue', 'RGB', 4)
+    cv2.setTrackbarPos('upper - red', 'RGB', 246)
+    cv2.setTrackbarPos('upper - green', 'RGB', 96)
+    cv2.setTrackbarPos('upper - blue', 'RGB', 57)
+
+
 cv2.namedWindow('RGB')
 #cv2.setMouseCallback('RGB', onMouse)
 cv2.createTrackbar('lower - red', 'RGB', 0, 255, nothing)
@@ -40,6 +49,7 @@ cv2.createTrackbar('upper - blue', 'RGB', 1, 255, nothing)
 #cv2.createTrackbar('mouseOver - green', 'RGB', 0, 255, nothing)
 #cv2.createTrackbar('mouseOver - blue', 'RGB', 0, 255, nothing)
 
+setBlue()
 
 if masking:
     while True:
@@ -131,7 +141,7 @@ if tracking:
         # blurred = cv2.GaussianBlur(frame, (11, 11), 0)
         # hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-        # construct a mask for the color "green", then perform
+        # construct a mask for the object colour, then perform
         # a series of dilations and erosions to remove any small
         # blobs left in the mask
         mask = cv2.inRange(image, colourLower, colourUpper)

@@ -189,7 +189,7 @@ if tracking:
 
         # show the frame to our screen and increment the frame counter
         cv2.imshow("RGB", image)
-        cv2.imwrite("new_image" + "-" + str(count)+ ".jpg", image)
+        #cv2.imwrite("new_image" + "-" + str(count)+ ".jpg", image)
         count = count + 1
         key = cv2.waitKey(1) & 0xFF
         counter += 1
